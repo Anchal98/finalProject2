@@ -14,10 +14,17 @@
                             <h1>Order - # <%= order._id %></h1>
                            
                             <ul class="orders__products">
-                                    <a href ="/orders/<%=order._id%>">Invoice</a>
+                                    <a href ="/orders/<%=order._id%>"><img src="../images/index1.png"></img></a>
                                 <% order.products.forEach(p => { %>
-                                    <li class="orders__products-item"><%= p.product.title %> (<%= p.quantity %>)
-                                      
+                                    <li class="orders__products-item">
+
+                                   <h1>  Title : <%= p.product.title %> </h1>
+                                   <h1> Quantity :  <%= p.quantity %></h1>
+                                   <div class="card">
+                                    <div class="card__image">
+                                     <img src="/<%= p.product.imageUrl %>" alt="<%= p.product.title %>" ></img>
+                                           </div>
+                                      </div>
                                     </li>
                                     
                                 <% }); %>

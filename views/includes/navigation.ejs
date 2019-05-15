@@ -10,10 +10,7 @@
                 <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
             </li>
             <% if (isAuthenticated) { %>
-            <li class="main-header__item">
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
-                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
-            </li>
+            
             <li class="main-header__item">
                 <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
             </li>
@@ -27,6 +24,13 @@
                 <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
                 </a>
             </li>
+
+            <li class="main-header__item">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">
+                   <img src="../images/index.png" width=40 height = 40></img></a>
+            </li>
+
             <%}%>
         </ul>
         <% if (!isAuthenticated) { %>
@@ -38,12 +42,20 @@
                     <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a>
                 </li>
               <%}else{%>
+
+
                 <li class="main-header__item">
+
+
                     <form action="/logout" method="post">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
-                        <button type="submit">Logout</button>
+                        <button type="submit"><img src="../images/index2.png" width=50 height = 50></img></a>
+            </li></button>
                     </form>
+
                 </li>
+
+
 
             <%}%>
         </ul>

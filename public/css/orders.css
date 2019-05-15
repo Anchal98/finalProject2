@@ -7,10 +7,11 @@
 .orders__item h1 {
     margin: 0;
     font-size: 1rem;
+   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
 }
 
 .orders__item {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.80);
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -24,6 +25,9 @@
 .orders__products-item {
     margin: 0.5rem 0;
     padding: 0.5rem;
-    border: 1px solid #00695c;
+    border: 2px solid;
+    border-color: Gray;
+    border-radius: 10px;
     color: #00695c;
+
 }
