@@ -31,6 +31,7 @@
                    <img src="../images/index.png" width=40 height = 40></img></a>
             </li>
 
+
             <%}%>
         </ul>
         <% if (!isAuthenticated) { %>
@@ -47,16 +48,6 @@
                <ul class = "main-header__item-list">
 
 
-               <li class = "main-header__item">
-
-               <div class = "search-container">
-               <form action="/search" method="post">
-               <input type="text" placeholder="Search.." name="search">
-               <button type="submit"><i class="fa fa-search"></i></button
-               </form>
-               </div>
-
-               </li>
 
                 <li class="main-header__item">
 
@@ -70,6 +61,18 @@
                 </li>
 
 
+
+               
+             <li class = "main-header__item">
+
+               <div class = "search-container">
+               <form action="/search" method="post">
+               <input type="text" placeholder="Search.." name="search">
+               <button type="submit"><i class="fa fa-search"></i></button
+               </form>
+               </div>
+
+               </li>
 
             <%}%>
         </ul>
