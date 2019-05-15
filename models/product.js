@@ -130,4 +130,30 @@ const ProductSchema = new Schema({
 
 });
 
+
+// creating index
+
+ProductSchema.index({
+  
+     title:'text',
+     description:'text',
+},{
+
+    weights:{
+
+        name : 5,
+        description : 1,
+    },
+
+    
+  $text:
+    {
+      
+      $caseSensitive: false,
+      $diacriticSensitive: false,
+    }
+
+
+});
+
 module.exports = mongoose.model('product',ProductSchema);

@@ -6,13 +6,37 @@ const path = require('path');
 const fs =require('fs');
 const pdfDocument= require('pdfkit');
 const Razorpay =require('razorpay');
-var page = 1;
+
 
 // const config = require('../config/config');
 //const orderItem =require('../models/orderItem');
 
 
+// search method
 
+
+exports.searchProducts = (req,res,next) =>{
+
+  console.log('Inside search Products')
+
+    const term = req.body.search;
+
+    Product.find({$text : {$search : term},
+
+  })
+     .then((val)=>{
+
+        res.render('shop/product-list', {
+        prods: val,
+        pageTitle: term,
+        path: '/products',
+        isAuthenticated:req.session.isLogged,
+
+     });
+
+   }).catch(e => console.log(e));
+
+}
 
 exports.getProducts = (req, res, next) => {
   Product.find()

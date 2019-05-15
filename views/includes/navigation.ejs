@@ -41,8 +41,22 @@
                 <li class="main-header__item">
                     <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup">Signup</a>
                 </li>
+                </ul>
               <%}else{%>
 
+               <ul class = "main-header__item-list">
+
+
+               <li class = "main-header__item">
+
+               <div class = "search-container">
+               <form action="/search" method="post">
+               <input type="text" placeholder="Search.." name="search">
+               <button type="submit"><i class="fa fa-search"></i></button
+               </form>
+               </div>
+
+               </li>
 
                 <li class="main-header__item">
 
