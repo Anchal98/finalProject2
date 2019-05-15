@@ -6,7 +6,7 @@ const path = require('path');
 const fs =require('fs');
 const pdfDocument= require('pdfkit');
 const Razorpay =require('razorpay');
-
+var page = 1;
 
 // const config = require('../config/config');
 //const orderItem =require('../models/orderItem');
@@ -52,8 +52,18 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
-var  page = +req.query.page;
+
+  var page;
+  if(!isNaN(req.query.page)){
+ page = +req.query.page;
+
+  }else{
+    page = 1;
+  }
+
  console.log(page);
+
+
   const ITEMS_PER_PAGE = 2 ; 
   var total_products ;
    Product.countDocuments().then(products=>{
