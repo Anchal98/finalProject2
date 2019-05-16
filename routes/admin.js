@@ -14,7 +14,6 @@ router.get('/products', adminController.getProducts);
 
 // // /admin/add-product => POST
 router.post('/add-product',[
-    body('title','error title should have the characters of minimum 5 length').isAlpha().isLength({min:5}),
     body('description','the description should have the minimum length of 10 characters').isLength({min:10})
 ],reauth,adminController.postAddProduct);
 

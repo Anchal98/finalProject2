@@ -15,28 +15,6 @@ const Razorpay =require('razorpay');
 // search method
 
 
-exports.searchProducts = (req,res,next) =>{
-
-  console.log('Inside search Products')
-
-    const term = req.body.search;
-
-    Product.find({$text : {$search : term},
-
-  })
-     .then((val)=>{
-
-        res.render('shop/product-list', {
-        prods: val,
-        pageTitle: term,
-        path: '/products',
-        isAuthenticated:req.session.isLogged,
-
-     });
-
-   }).catch(e => console.log(e));
-
-}
 
 exports.getProducts = (req, res, next) => {
   Product.find()
@@ -88,7 +66,7 @@ exports.getIndex = (req, res, next) => {
  console.log(page);
 
 
-  const ITEMS_PER_PAGE = 2 ; 
+  const ITEMS_PER_PAGE = 4 ; 
   var total_products ;
    Product.countDocuments().then(products=>{
     total_products  = products;
@@ -421,7 +399,7 @@ exports.getCheckout = (req,res,next)=>{
       total_price: total,
       orderId:orderId,
       email:'anchal1998gupta@gmail.com',
-      userId:req.user,
+      userId:'rerzp_test_fOqazqcN3IcKUH',
       api_key:'rzp_test_fOqazqcN3IcKUH',
       payment_id:userId.toString()
     });
@@ -438,5 +416,29 @@ exports.getCheckout = (req,res,next)=>{
 //})
 
 
+
+}
+
+
+exports.searchProducts = (req,res,next) =>{
+
+  console.log('Inside search Products')
+
+    const term = req.body.search;
+
+    Product.find({$text : {$search : term},
+
+  })
+     .then((val)=>{
+
+        res.render('shop/product-list', {
+        prods: val,
+        pageTitle: term,
+        path: '/products',
+        isAuthenticated:req.session.isLogged,
+
+     });
+
+   }).catch(e => console.log(e));
 
 }
